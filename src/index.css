@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "@fontsource-variable/noto-sans-bengali";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Inter runs the dense UI; Noto Sans Bengali picks up Bengali text such as the `bn` names. */
+  --font-sans:
+    "Inter Variable", "Noto Sans Bengali Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    "Plus Jakarta Sans Variable", "Inter Variable", "Noto Sans Bengali Variable", ui-sans-serif,
+    sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/**
+ * The storefront's palette ("Maritime Global Commerce", global-grid-frontend's
+ * `src/app/globals.css`) set straight onto shadcn's roles, so the two apps
+ * read as one brand. Filled actions use the logo's blue, a shade deeper than
+ * the mark's #0088cc so white type on it stays legible (4.9:1).
+ */
+:root {
+  --radius: 0.5rem;
+  --background: #ffffff;
+  --foreground: #0b1c30;
+  --card: #ffffff;
+  --card-foreground: #0b1c30;
+  --popover: #ffffff;
+  --popover-foreground: #0b1c30;
+  --primary: #0077b3;
+  --primary-foreground: #ffffff;
+  --secondary: #eff4ff;
+  --secondary-foreground: #0b2545;
+  --muted: #eff4ff;
+  --muted-foreground: #44474e;
+  --accent: #e5eeff;
+  --accent-foreground: #0b1c30;
+  --destructive: #ba1a1a;
+  --border: #c4c6cf;
+  --input: #c4c6cf;
+  --ring: #006398;
+  --chart-1: #006398;
+  --chart-2: #059669;
+  --chart-3: #f59e0b;
+  --chart-4: #ba1a1a;
+  --chart-5: #0b2545;
+  --sidebar: #f8f9ff;
+  --sidebar-foreground: #0b1c30;
+  --sidebar-primary: #0b2545;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e5eeff;
+  --sidebar-accent-foreground: #0b2545;
+  --sidebar-border: #c4c6cf;
+  --sidebar-ring: #006398;
+}
+
+.dark {
+  --background: #0a1526;
+  --foreground: #e8eefa;
+  --card: #0f1f36;
+  --card-foreground: #e8eefa;
+  --popover: #0f1f36;
+  --popover-foreground: #e8eefa;
+  --primary: #0077b3;
+  --primary-foreground: #ffffff;
+  --secondary: #13233d;
+  --secondary-foreground: #e8eefa;
+  --muted: #13233d;
+  --muted-foreground: #b8c4d9;
+  --accent: #1b2e4c;
+  --accent-foreground: #e8eefa;
+  --destructive: #ff5449;
+  --border: #2a3b55;
+  --input: #2a3b55;
+  --ring: #93ccff;
+  --chart-1: #93ccff;
+  --chart-2: #34d399;
+  --chart-3: #ffb95f;
+  --chart-4: #ff5449;
+  --chart-5: #b1c7f0;
+  --sidebar: #07101f;
+  --sidebar-foreground: #e8eefa;
+  --sidebar-primary: #0077b3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #13233d;
+  --sidebar-accent-foreground: #e8eefa;
+  --sidebar-border: #2a3b55;
+  --sidebar-ring: #93ccff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  /* Tailwind 4 leaves buttons on the default cursor; every one that can be pressed gets the hand. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
