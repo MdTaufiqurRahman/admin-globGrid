@@ -1,0 +1,9 @@
+node_modules/
+dist/
+coverage/
+.pnpm-store/
+pnpm-lock.yaml
+
+# Generated: the router plugin writes the route tree, `pnpm api:types` the API schema.
+src/routeTree.gen.ts
+src/lib/api/schema.d.ts
